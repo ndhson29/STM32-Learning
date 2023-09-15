@@ -59,8 +59,8 @@ all: main-build
 main-build: 000HelloWorld.elf secondary-outputs
 
 # Tool invocations
-000HelloWorld.elf 000HelloWorld.map: $(OBJS) $(USER_OBJS) D:\SONNDH2\WorkPlace\STM32_IDE\Projects\000HelloWorld\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "000HelloWorld.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\SONNDH2\WorkPlace\STM32_IDE\Projects\000HelloWorld\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="000HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+000HelloWorld.elf 000HelloWorld.map: $(OBJS) $(USER_OBJS) D:\001_SONNDH\Workspace\STM32\STM32F407G-DISC1\01Projects\000HelloWorld\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "000HelloWorld.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\001_SONNDH\Workspace\STM32\STM32F407G-DISC1\01Projects\000HelloWorld\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="000HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

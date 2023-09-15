@@ -7,19 +7,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00000b84  080001a8  080001a8  000101a8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000010  08000d2c  08000d2c  00010d2c  2**2
+  2 .rodata       0000000c  08000d2c  08000d2c  00010d2c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08000d3c  08000d3c  0002005c  2**0
+  3 .ARM.extab    00000000  08000d38  08000d38  0002005c  2**0
                   CONTENTS
-  4 .ARM          00000000  08000d3c  08000d3c  0002005c  2**0
+  4 .ARM          00000000  08000d38  08000d38  0002005c  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08000d3c  08000d3c  0002005c  2**0
+  5 .preinit_array 00000000  08000d38  08000d38  0002005c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08000d3c  08000d3c  00010d3c  2**2
+  6 .init_array   00000004  08000d38  08000d38  00010d38  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08000d40  08000d40  00010d40  2**2
+  7 .fini_array   00000004  08000d3c  08000d3c  00010d3c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000005c  20000000  08000d44  00020000  2**2
+  8 .data         0000005c  20000000  08000d40  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   9 .ccmram       00000000  10000000  10000000  0002005c  2**0
                   CONTENTS
@@ -43,11 +43,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  19 .debug_line   000013f8  00000000  00000000  00023988  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    0000979e  00000000  00000000  00024d80  2**0
+ 20 .debug_str    000097b0  00000000  00000000  00024d80  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  000009c8  00000000  00000000  0002e520  2**2
+ 21 .debug_frame  000009c8  00000000  00000000  0002e530  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005f  00000000  00000000  0002eee8  2**0
+ 22 .debug_line_str 00000071  00000000  00000000  0002eef8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -89,7 +89,7 @@ int main(void)
 {
  80001e8:	b580      	push	{r7, lr}
  80001ea:	af00      	add	r7, sp, #0
-	printf("Hello World!\n");
+	printf("Hello World\n");
  80001ec:	4801      	ldr	r0, [pc, #4]	; (80001f4 <main+0xc>)
  80001ee:	f000 f9fd 	bl	80005ec <puts>
     /* Loop forever */
@@ -495,7 +495,7 @@ LoopForever:
   ldr r1, =_edata
  80003d0:	2000005c 	.word	0x2000005c
   ldr r2, =_sidata
- 80003d4:	08000d44 	.word	0x08000d44
+ 80003d4:	08000d40 	.word	0x08000d40
   ldr r2, =_sbss
  80003d8:	2000005c 	.word	0x2000005c
   ldr r4, =_ebss
@@ -1051,10 +1051,10 @@ Infinite_Loop:
  8000886:	4798      	blx	r3
  8000888:	3601      	adds	r6, #1
  800088a:	e7f2      	b.n	8000872 <__libc_init_array+0x1e>
- 800088c:	08000d3c 	.word	0x08000d3c
- 8000890:	08000d3c 	.word	0x08000d3c
- 8000894:	08000d3c 	.word	0x08000d3c
- 8000898:	08000d40 	.word	0x08000d40
+ 800088c:	08000d38 	.word	0x08000d38
+ 8000890:	08000d38 	.word	0x08000d38
+ 8000894:	08000d38 	.word	0x08000d38
+ 8000898:	08000d3c 	.word	0x08000d3c
 
 0800089c <__retarget_lock_acquire_recursive>:
  800089c:	4770      	bx	lr
